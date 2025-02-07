@@ -75,6 +75,37 @@ otherGamesText.style.cssText = `
     align-items: flex-start;
     gap: 10px;
 `;
+
+// Add viewport meta tag for mobile responsiveness
+const metaTag = document.createElement('meta');
+metaTag.name = 'viewport';
+metaTag.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+document.head.appendChild(metaTag);
+
+// Update button styles
+const buttonStyles = `
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    width: min(200px, 90vw);
+    font-size: clamp(14px, 4vw, 16px);
+`;
+
+// Update the other games section styling
+otherGamesText.style.cssText = `
+    position: static;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+`;
+
 document.body.appendChild(otherGamesText);
 
 // Add Contexto button
@@ -195,3 +226,65 @@ function checkAnswer(card: HTMLElement, selected: string, correct: string) {
 
 // Start the game
 createNewRound();
+// Add meta viewport tag for mobile compatibility
+const metaViewport = document.createElement('meta');
+metaViewport.name = 'viewport';
+metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+document.head.appendChild(metaViewport);
+
+// Add dark theme styles
+const darkThemeStyles = document.createElement('style');
+darkThemeStyles.textContent = `
+  body {
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .english-card {
+    width: 90%;
+    max-width: 300px;
+    margin: 0 auto;
+    background: #1e88e5;
+  }
+
+  .options-container {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    padding: 10px;
+  }
+
+  .translation-card {
+    width: 100%;
+    height: 60px;
+    background: #388e3c;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    touch-action: manipulation;
+  }
+
+  @media (max-width: 480px) {
+    .options-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .english-card {
+      font-size: 20px;
+      height: 80px;
+    }
+  }
+`;
+
+document.head.appendChild(darkThemeStyles);
